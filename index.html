@@ -1,0 +1,2246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GxDx - Omni-Vertical Software Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-teal: #0fa3b1;
+            --primary-blue: #1a4b7c;
+            --accent-purple: #6d46a9;
+            --accent-green: #2e7d32; /* Added for Climate/Eco Tech */
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo-gx {
+            color: var(--primary-teal);
+        }
+
+        .logo-slash {
+            color: var(--primary-blue);
+        }
+
+        .logo-dx {
+            color: var(--primary-teal);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-teal);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-bg) 100%);
+            color: var(--white);
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-teal);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #0d8c98;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* About Section - UPDATED */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .about-text {
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .tech-stack {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .tech-stack h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+
+        .tech-icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .tech-icon {
+            background: var(--primary-teal);
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .vision-mission {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .vision-card, .mission-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .vision-card h3, .mission-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        /* Solutions Overview Section - NEW */
+        .solutions-overview {
+            background-color: var(--light-bg);
+        }
+
+        .solutions-tiers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .tier-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .tier-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .tier-core .tier-icon {
+            color: var(--primary-blue);
+        }
+
+        .tier-advanced .tier-icon {
+            color: var(--primary-teal);
+        }
+
+        .tier-emerging .tier-icon {
+            color: var(--accent-purple);
+        }
+
+        .tier-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .tier-card ul {
+            list-style-type: none;
+            text-align: left;
+            margin-top: 15px;
+            flex-grow: 1;
+        }
+
+        .tier-card li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .tier-card li:before {
+            content: "•";
+            color: var(--primary-teal);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .solution-flowchart {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .flowchart-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .flowchart {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            max-width: 800px;
+        }
+
+        .flowchart-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .flowchart-item {
+            background: var(--light-bg);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            border: 2px solid var(--primary-blue);
+        }
+
+        .flowchart-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-teal);
+        }
+
+        /* Services Section - UPDATED */
+        .services-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-btn.active {
+            color: var(--primary-teal);
+            border-bottom: 3px solid var(--primary-teal);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-teal);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .service-card p {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Industries Section - UPDATED */
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .industry-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .industry-icon {
+            font-size: 2.5rem;
+            color: var(--primary-teal);
+            margin-bottom: 20px;
+        }
+
+        .industry-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .industry-card ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+
+        .industry-card li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .industry-card li:before {
+            content: "•";
+            color: var(--primary-teal);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Portfolio Section - UPDATED */
+        .portfolio-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .portfolio-item {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .portfolio-image {
+            flex: 1;
+            min-height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .portfolio-content {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .portfolio-tag {
+            display: inline-block;
+            background: var(--primary-teal);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .portfolio-content p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .portfolio-impact {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        /* Alternate layout for even items */
+        .portfolio-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        /* Engagement Models - UPDATED */
+        .engagement-models {
+            background-color: var(--dark-bg);
+            color: var(--white);
+        }
+
+        .engagement-models .section-title h2 {
+            color: var(--white);
+        }
+
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .model-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .model-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .model-icon {
+            font-size: 2.5rem;
+            color: var(--primary-teal);
+            margin-bottom: 20px;
+        }
+
+        .model-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Market Opportunity Section - UPDATED */
+        .market-opportunity {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-bg) 100%);
+            color: var(--white);
+        }
+
+        .market-opportunity .section-title h2 {
+            color: var(--white);
+        }
+
+        .market-opportunity .section-title p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .market-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .market-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .market-icon {
+            font-size: 2.5rem;
+            color: var(--primary-teal);
+            margin-bottom: 20px;
+        }
+
+        .market-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 15px 0;
+            color: var(--primary-teal);
+        }
+
+        /* Market Charts - UPDATED */
+        .market-charts {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .charts-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .chart {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .chart-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary-teal);
+        }
+
+        .pie-chart {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #0fa3b1 0% 30%,
+                #1a4b7c 30% 55%,
+                #6d46a9 55% 75%,
+                #2e7d32 75% 100%
+            );
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .pie-chart::before {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 50%;
+            top: 50px;
+            left: 50px;
+        }
+
+        .chart-legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 3px;
+        }
+
+        .bar-chart {
+            height: 200px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .bar {
+            width: 40px;
+            background: var(--primary-teal);
+            border-radius: 3px 3px 0 0;
+            position: relative;
+        }
+
+        .bar-label {
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -25px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Technical Differentiators - UPDATED */
+        .tech-differentiators {
+            background-color: var(--light-bg);
+        }
+
+        .differentiators-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .differentiator-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .differentiator-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .differentiator-icon {
+            font-size: 2.5rem;
+            color: var(--primary-teal);
+            margin-bottom: 20px;
+        }
+
+        .differentiator-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        /* Target Audience Section - NEW */
+        .target-audience {
+            background-color: var(--light-bg);
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .audience-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .audience-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .audience-icon {
+            font-size: 2.5rem;
+            color: var(--primary-teal);
+            margin-bottom: 20px;
+        }
+
+        .audience-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .audience-card ul {
+            list-style-type: none;
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        .audience-card li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .audience-card li:before {
+            content: "•";
+            color: var(--primary-teal);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Roadmap - UPDATED */
+        .roadmap-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .roadmap-line {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: calc(100% - 100px);
+            background: var(--primary-teal);
+        }
+
+        .roadmap-items {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .roadmap-item {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .roadmap-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .roadmap-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .roadmap-content {
+            flex: 1;
+            padding: 30px;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .roadmap-marker {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--primary-teal);
+            border: 5px solid var(--light-bg);
+            z-index: 1;
+        }
+
+        .roadmap-item:nth-child(odd) .roadmap-marker {
+            margin-right: 30px;
+        }
+
+        .roadmap-item:nth-child(even) .roadmap-marker {
+            margin-left: 30px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-teal);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 60px 0;
+            background-color: var(--light-bg);
+        }
+
+        .map-container {
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary-teal);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-teal);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-teal);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: inline-block;
+            background-color: var(--primary-teal);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .download-btn:hover {
+            background-color: #0d8c98;
+            transform: translateY(-3px);
+        }
+
+        .download-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .roadmap-line {
+                left: 30px;
+            }
+            
+            .roadmap-item {
+                flex-direction: row !important;
+            }
+            
+            .roadmap-item:nth-child(odd) .roadmap-marker,
+            .roadmap-item:nth-child(even) .roadmap-marker {
+                margin-right: 30px;
+                margin-left: 0;
+            }
+            
+            .vision-mission {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio-item {
+                flex-direction: column;
+            }
+            
+            .portfolio-item:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .portfolio-image {
+                width: 100%;
+                min-height: 250px;
+            }
+            
+            .solutions-tiers {
+                grid-template-columns: 1fr;
+            }
+            
+            .charts-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .services-tabs {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .services-grid,
+            .industries-grid,
+            .portfolio-grid,
+            .models-grid,
+            .market-grid,
+            .differentiators-grid,
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .flowchart {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .flowchart-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                    <span class="logo-gx">Gx</span><span class="logo-slash">/</span><span class="logo-dx">Dx</span>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#industries">Industries</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#engagement">Engagement</a></li>
+                    <li><a href="#market">Market</a></li>
+                    <li><a href="#roadmap">Roadmap</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your All-in-One Technology Partner</h1>
+                <p>GxDx is an omni-vertical software solutions company delivering secure, high-quality, and scalable digital products across multiple industries. We function as a trusted global partner, combining rigorous engineering standards with local expertise to drive clients' growth and digital transformation. We can be positioned as your all-in-one technology partner offering full-stack custom software development, SaaS/platform products and hybrid solutions.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Start Your Project</a>
+                    <a href="#portfolio" class="btn btn-secondary">See Our Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section - UPDATED -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About GxDx</h2>
+                <p>We are a full-spectrum software development and digital innovation studio that delivers end-to-end enterprise-grade solutions.</p>
+            </div>
+            <div class="about-content fade-in">
+                <div class="about-text">
+                    <p>GxDx combines deep technical expertise (Rust, WebAssembly, AI/ML, AR/VR, blockchain, IoT, Climate Tech) with 20+ years of business experience. This allows us to create robust, scalable applications that meet fast-moving market needs.</p>
+                    <p>Our full-stack Rust focus lets us build robust, scalable solutions across all tiers of the architecture — frontends, backends, and blockchain components — all with seamless integration and memory safety.</p>
+                </div>
+                
+                <div class="vision-mission">
+                    <div class="vision-card fade-in">
+                        <h3>Our Vision</h3>
+                        <p>To become a leading global innovator in omni-vertical software, where any organization can access the latest AI/ML, Climate Tech, and blockchain tools through a single partner.</p>
+                    </div>
+                    <div class="mission-card fade-in">
+                        <h3>Our Mission</h3>
+                        <p>To provide end-to-end software solutions that span multiple industries – health, finance, education, media and entertainment, government, logistics, climate technology, and overseas markets – while maintaining world-class technical excellence, rigorous security, scalable architectures and a deep understanding of domain-specific regulations.</p>
+                    </div>
+                </div>
+                
+                <div class="tech-stack fade-in">
+                    <h3>Our Technical Stack</h3>
+                    <div class="tech-icons">
+                        <span class="tech-icon">Rust</span>
+                        <span class="tech-icon">WebAssembly</span>
+                        <span class="tech-icon">AI/ML</span>
+                        <span class="tech-icon">Climate Tech</span>
+                        <span class="tech-icon">Blockchain</span>
+                        <span class="tech-icon">IoT</span>
+                        <span class="tech-icon">Cloud-Native</span>
+                        <span class="tech-icon">Microservices</span>
+                        <span class="tech-icon">NEXT</span>
+                        <span class="tech-icon">React</span>
+                        <span class="tech-icon">PostgreSQL</span>
+                        <span class="tech-icon">Nest</span>
+                        <span class="tech-icon">C#</span>
+                        <span class="tech-icon">Python</span>
+                        <span class="tech-icon">React Native</span>
+                        <span class="tech-icon">DevOps</span>
+                        <span class="tech-icon">CyberSecurity</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Overview Section - UPDATED -->
+    <section class="solutions-overview" id="solutions">
+        <div class="container">
+            <div class="section-title">
+                <h2>Solutions Overview</h2>
+                <p>Our services are structured into Core, Advanced, and Emerging offerings covering the full technology spectrum</p>
+            </div>
+            
+            <div class="solutions-tiers">
+                <div class="tier-card tier-core fade-in">
+                    <div class="tier-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Core Solutions</h3>
+                    <p>Foundational development and support services that drive day-to-day operations and digital presence.</p>
+                    <ul>
+                        <li>Web & Cloud Applications</li>
+                        <li>Cross-Platform Mobile Apps</li>
+                        <li>Enterprise Systems & ERP</li>
+                        <li>Business Intelligence & Analytics</li>
+                        <li>Game Development</li>
+                        <li>Digital Branding & UX</li>
+                        <li>24/7 Software Maintenance</li>
+                        <li>Resource Augmentation</li>
+                    </ul>
+                </div>
+                
+                <div class="tier-card tier-advanced fade-in">
+                    <div class="tier-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Advanced Solutions</h3>
+                    <p>High-impact technologies that deliver a competitive edge and transformative capabilities.</p>
+                    <ul>
+                        <li>AI/ML Development</li>
+                        <li>AI-as-a-Service</li>
+                        <li>Blockchain & Smart Contracts</li>
+                        <li>Digital Wallets & Fintech</li>
+                        <li>Data Engineering</li>
+                        <li>Computer Vision / Image Processing</li>
+                    </ul>
+                </div>
+                
+                <div class="tier-card tier-emerging fade-in">
+                    <div class="tier-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Emerging Technologies</h3>
+                    <p>Next-wave innovations that future-proof client offerings and create new market opportunities.</p>
+                    <ul>
+                        <li>Climate/Eco Tech Platforms</li>
+                        <li>IoT & Edge Computing</li>
+                        <li>Generative AI Solutions</li>
+                        <li>Quantum Computing</li>
+                        <li>Sustainability Analytics</li>
+                        <li>Carbon Tracking Solutions</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="solution-flowchart fade-in">
+                <h3>Solution Integration Flow</h3>
+                <p>Our solutions integrate seamlessly across technology tiers to deliver comprehensive digital transformation.</p>
+                <div class="flowchart-container">
+                    <div class="flowchart">
+                        <div class="flowchart-column">
+                            <div class="flowchart-item">Web & Cloud Apps</div>
+                            <div class="flowchart-item">Mobile Apps</div>
+                            <div class="flowchart-item">Business Analytics</div>
+                            <div class="flowchart-item">Digital Branding</div>
+                            <div class="flowchart-item">ERP Systems</div>
+                            <div class="flowchart-item">Game Development</div>
+                        </div>
+                        <div class="flowchart-arrow">→</div>
+                        <div class="flowchart-column">
+                            <div class="flowchart-item">AI/ML & Data Science</div>
+                            <div class="flowchart-item">AI-as-a-Service</div>
+                            <div class="flowchart-item">Blockchain & Wallets</div>
+                            <div class="flowchart-item">Computer Vision</div>
+                        </div>
+                        <div class="flowchart-arrow">→</div>
+                        <div class="flowchart-column">
+                            <div class="flowchart-item">Climate/Eco Tech</div>
+                            <div class="flowchart-item">IoT & Edge Computing</div>
+                            <div class="flowchart-item">Generative AI</div>
+                            <div class="flowchart-item">Sustainability Analytics</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Differentiators - UPDATED -->
+    <section class="tech-differentiators">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Differentiators</h2>
+                <p>Our technical DNA emphasizes modern, modular architecture and security</p>
+            </div>
+            <div class="differentiators-grid">
+                <div class="differentiator-card fade-in">
+                    <div class="differentiator-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Full-Stack Rust Development</h3>
+                    <p>We leverage Rust, WebAssembly, and microservices to build fast, safe systems with seamless integration across client, server, and blockchain layers. Our unified stack (Rust/JS) allows seamless full-stack development with one language across all tiers of the architecture.</p>
+                </div>
+                <div class="differentiator-card fade-in">
+                    <div class="differentiator-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>API-First Design</h3>
+                    <p>All integrations follow API-first design with OAuth2/JWT authentication, documented REST/GraphQL endpoints, and zero-trust security principles. Our standard backend uses Axum/Tokio (async Rust) with SQLx/Postgres and Redis, containerized for cloud scalability.</p>
+                </div>
+                <div class="differentiator-card fade-in">
+                    <div class="differentiator-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Industrial-Grade DevOps</h3>
+                    <p>Automated CI/CD pipelines (GitHub Actions, Docker, Kubernetes) ensure consistent, repeatable deployments across dev/staging/prod environments. We incorporate AI/BI modules, such as real-time analytics pipelines and dashboards, to transform raw data into insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section - UPDATED -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Structured into Core, Advanced, and Emerging offerings covering the full technology spectrum</p>
+            </div>
+            
+            <div class="services-tabs">
+                <button class="tab-btn active" data-tab="core">Core Solutions</button>
+                <button class="tab-btn" data-tab="advanced">Advanced Technologies</button>
+                <button class="tab-btn" data-tab="emerging">Emerging Innovations</button>
+            </div>
+            
+            <div class="tab-content active" id="core-tab">
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Web & Cloud Applications</h3>
+                        <p>Robust web portals, PWAs and native/mobile apps using modern frameworks like React, Angular, and cloud-native architectures.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Cross-Platform Mobile Apps</h3>
+                        <p>iOS/Android applications using Flutter, React Native with best practices for performance and user experience.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Analytics & Insights</h3>
+                        <p>Advanced analytics, interactive dashboards, and predictive insights that turn complex data into actionable intelligence for informed decision-making.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>Enterprise Systems & ERP</h3>
+                        <p>Custom ERP solutions that unify finance, inventory, HR, CRM and analytics into a single platform with real-time operational dashboards.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Game Development</h3>
+                        <p>Full-cycle game development from 2D/3D indie games to serious games and narrative experiences using Unity and Unreal engines.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Digital Branding & UX</h3>
+                        <p>UI/UX design services, full-stack marketing sites, and digital marketing assets that align with company identity.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="advanced-tab">
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI-as-a-Service</h3>
+                        <p>We are packaging our AI expertise into platform offerings. This includes next-gen generative AI assistants (like our multimodal chatbot) and custom ML pipelines accessible via API. In line with industry momentum, we plan to offer AI toolkits for content automation and data insights, reflecting our strength in "leveraging AI tools" for innovation.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>AI/ML & Data Science</h3>
+                        <p>Custom machine-learning models, predictive analytics, intelligent systems, and multimodal AI chatbots.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h3>Blockchain & Smart Contracts</h3>
+                        <p>Secure payment systems, smart contracts, crypto-fiat wallet solutions, and NFT marketplaces.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <h3>Digital Wallets & Fintech</h3>
+                        <p>Secure multi-currency wallets with fiat on-ramps, Forex trading platforms, and regulatory compliance features.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Data Engineering</h3>
+                        <p>Big data pipelines, real-time analytics, ETL processes, and data warehousing solutions for enterprise needs.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="emerging-tab">
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Climate/Eco Tech Solutions</h3>
+                        <p>Sustainability platforms, carbon tracking systems, environmental monitoring, and green technology solutions for businesses aiming to reduce their environmental impact.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>IoT & Edge Computing</h3>
+                        <p>Sensor networks, real-time edge analytics for smart devices, and digital twin technology for physical systems.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Generative AI Solutions</h3>
+                        <p>AI-driven content creation tools, virtual influencers, creative automation, and large language model applications.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h3>Quantum Computing</h3>
+                        <p>Quantum-ready algorithms for optimization problems in logistics, finance, and drug discovery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section - UPDATED -->
+    <section id="industries">
+        <div class="container">
+            <div class="section-title">
+                <h2>Solutions by Industry</h2>
+                <p>We serve a broad range of sectors with special focus on those undergoing rapid digital transformation</p>
+            </div>
+            <div class="industries-grid">
+                <div class="industry-card fade-in">
+                    <div class="industry-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Healthcare</h3>
+                    <p>Telehealth platforms, EHR systems, remote patient monitoring, and medical training simulations.</p>
+                    <ul>
+                        <li>Electronic Health/Medical Records (EHR/EMR)</li>
+                        <li>Telehealth/Virtual Care Platforms</li>
+                        <li>Remote Patient Monitoring (RPM) & Wearables</li>
+                        <li>Health Analytics & Population Health Dashboards</li>
+                    </ul>
+                </div>
+                <div class="industry-card fade-in">
+                    <div class="industry-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Fintech</h3>
+                    <p>Digital wallets, payment gateways, trading platforms, and regulatory compliance solutions.</p>
+                    <ul>
+                        <li>Mobile Banking & Digital Wallets</li>
+                        <li>Payment Gateways & Merchant Services</li>
+                        <li>Core Banking & Micro-finance Platforms</li>
+                        <li>Virtual/Corporate Card Platforms</li>
+                    </ul>
+                </div>
+                <div class="industry-card fade-in">
+                    <div class="industry-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Education</h3>
+                    <p>Immersive learning platforms, LMS systems, gamified training, and educational analytics.</p>
+                    <ul>
+                        <li>Learning Management Systems (LMS)</li>
+                        <li>Online Course Marketplaces & MOOCs</li>
+                        <li>Virtual Classrooms & Collaboration Tools</li>
+                        <li>AI-Driven Personalized Learning</li>
+                    </ul>
+                </div>
+                <div class="industry-card fade-in">
+                    <div class="industry-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Climate/Eco Tech</h3>
+                    <p>Sustainability solutions, carbon tracking, environmental monitoring, and green technology platforms.</p>
+                    <ul>
+                        <li>Carbon Footprint Tracking Systems</li>
+                        <li>Environmental Monitoring Platforms</li>
+                        <li>Sustainability Reporting Tools</li>
+                        <li>Green Energy Management Systems</li>
+                    </ul>
+                </div>
+                <div class="industry-card fade-in">
+                    <div class="industry-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3>Media & Entertainment</h3>
+                    <p>OTT streaming platforms, content management systems, gaming, and immersive experiences.</p>
+                    <ul>
+                        <li>Over-the-Top (OTT) & Streaming Platforms</li>
+                        <li>Content Management & Digital Asset Management</li>
+                        <li>Gaming & Interactive Entertainment</li>
+                        <li>AI-Powered Content Creation</li>
+                    </ul>
+                </div>
+                <div class="industry-card fade-in">
+                    <div class="industry-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Logistics & Supply Chain</h3>
+                    <p>Supply chain management, transportation systems, warehouse management, and IoT solutions.</p>
+                    <ul>
+                        <li>Supply Chain Management (SCM) Suites</li>
+                        <li>Transportation Management Systems (TMS)</li>
+                        <li>Warehouse Management Systems (WMS)</li>
+                        <li>IoT & Sensor Solutions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section - UPDATED -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Innovations in Action</h2>
+                <p>Explore our portfolio of transformative digital products that deliver tangible results</p>
+            </div>
+            <div class="portfolio-container">
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image" style="background: linear-gradient(45deg, #1E88E5, #0D47A1);"></div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">ENTERPRISE GRADE</span>
+                        <h3>Custom ERP with Predictive Analytics</h3>
+                        <p>A bespoke ERP that unifies business functions, providing real-time data insights and robust demand forecasting. This comprehensive system integrates finance, inventory, HR, CRM and analytics into a single platform with operational dashboards.</p>
+                        <p class="portfolio-impact">Impact: 20% increase in operational efficiency with real-time KPI tracking.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image" style="background: linear-gradient(45deg, #00BFA5, #0a101f);"></div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">AI-AS-A-SERVICE</span>
+                        <h3>Multimodal AI Assistant Platform</h3>
+                        <p>An advanced AI-as-a-Service platform offering multimodal chatbot capabilities, custom ML pipelines, and content automation tools. This solution provides businesses with accessible AI tools for enhanced customer engagement and operational efficiency.</p>
+                        <p class="portfolio-impact">Impact: 45% reduction in support costs with improved customer satisfaction.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image" style="background: linear-gradient(45deg, #0D47A1, #00BFA5);"></div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">CLIMATE TECH</span>
+                        <h3>Sustainability Analytics Platform</h3>
+                        <p>A comprehensive climate tech solution for tracking carbon emissions, monitoring environmental impact, and generating sustainability reports. This platform helps organizations meet ESG compliance and reduce their environmental footprint.</p>
+                        <p class="portfolio-impact">Impact: 30% reduction in carbon footprint tracking time with automated reporting.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image" style="background: linear-gradient(45deg, #5E35B1, #0D47A1);"></div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">FINTECH</span>
+                        <h3>Secure Digital Wallet Platform</h3>
+                        <p>A digital wallet for crypto-to-fiat transactions, featuring advanced security and real-time forex conversion. The platform includes multi-currency support, KYC/AML compliance, and seamless integration with traditional banking systems.</p>
+                        <p class="portfolio-impact">Impact: High user adoption with secure transactions and market reliability.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image" style="background: linear-gradient(45deg, #2e7d32, #1a4b7c);"></div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">CLIMATE TECH</span>
+                        <h3>Carbon Tracking & Reporting System</h3>
+                        <p>An enterprise-grade carbon tracking solution that helps organizations monitor, analyze, and report their carbon emissions. The system integrates with various data sources to provide accurate sustainability metrics and compliance reporting.</p>
+                        <p class="portfolio-impact">Impact: Streamlined ESG reporting with 40% faster compliance processes.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image" style="background: linear-gradient(45deg, #0fa3b1, #1a4b7c);"></div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-tag">CORPORATE TRAINING</span>
+                        <h3>Interactive Compliance Training Suite</h3>
+                        <p>A gamified e-learning platform for corporate training, focusing on compliance, ethics, and soft skills development. Features real-time analytics, engagement tracking, and personalized learning paths for employees.</p>
+                        <p class="portfolio-impact">Impact: Improved training completion rates and knowledge retention across organizations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engagement Models Section - UPDATED -->
+    <section class="engagement-models" id="engagement">
+        <div class="container">
+            <div class="section-title">
+                <h2>Engagement Models</h2>
+                <p>Flexible partnership models to suit any project scope or client preference</p>
+            </div>
+            <div class="models-grid">
+                <div class="model-card fade-in">
+                    <div class="model-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Team Augmentation</h3>
+                    <p>Embed our expert developers (Rust engineers, AI specialists, UX designers) directly into your in-house team. This approach accelerates development and transfers know-how seamlessly while you retain control.</p>
+                </div>
+                <div class="model-card fade-in">
+                    <div class="model-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Modular Delivery</h3>
+                    <p>We take ownership of specific components (mobile app, blockchain wallet, analytics dashboard) as self-contained deliverables with clear specs, then integrate with your systems for balanced collaboration.</p>
+                </div>
+                <div class="model-card fade-in">
+                    <div class="model-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Full Project Outsourcing</h3>
+                    <p>End-to-end ownership of your project from requirements and design through launch and support. Ideal for clients seeking minimal overhead or a single accountable partner for the entire solution.</p>
+                </div>
+                <div class="model-card fade-in">
+                    <div class="model-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Managed Services</h3>
+                    <p>Ongoing support, maintenance, and enhancement contracts for existing systems under clear SLAs. We provide everything from cloud ops and security patches to performance tuning and new integrations.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px; color: rgba(255,255,255,0.8);">
+                <p><strong>Our Engagement Philosophy:</strong> "Start Small, Prove Value, Scale Fast" - We begin with pilot modules, demonstrate value quickly, then expand scope as trust and velocity grow.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience Section - UPDATED -->
+    <section class="target-audience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Target Audience</h2>
+                <p>We serve diverse stakeholders across the technology ecosystem</p>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-card fade-in">
+                    <div class="audience-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Investors</h3>
+                    <p>VCs and strategic investors interested in tech platforms (especially AI, Climate Tech, blockchain).</p>
+                    <ul>
+                        <li>Focus on emerging tech ROI</li>
+                        <li>Diverse revenue streams (services, platform licenses, transaction fees)</li>
+                        <li>Multiple exit options (acquisition by tech giants, IPO)</li>
+                    </ul>
+                </div>
+                <div class="audience-card fade-in">
+                    <div class="audience-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Enterprise Clients</h3>
+                    <p>Corporations, governments, and NGOs seeking digital transformation.</p>
+                    <ul>
+                        <li>Startups to Fortune 500 across multiple industries</li>
+                        <li>Need both standard solutions (ERP, analytics) and innovative pilots</li>
+                        <li>Value our omni-vertical expertise and technical excellence</li>
+                    </ul>
+                </div>
+                <div class="audience-card fade-in">
+                    <div class="audience-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Partners</h3>
+                    <p>Technology firms, agencies, and research institutions looking to co-develop solutions.</p>
+                    <ul>
+                        <li>IT consultants and platform vendors</li>
+                        <li>R&D labs and academic institutions</li>
+                        <li>Cloud providers and industry consortia</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Opportunity Section - UPDATED -->
+    <section class="market-opportunity" id="market">
+        <div class="container">
+            <div class="section-title">
+                <h2>Market Opportunity</h2>
+                <p>The global market demand for our combined focus areas is exploding across multiple industries</p>
+            </div>
+            <div class="market-grid">
+                <div class="market-card fade-in">
+                    <div class="market-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Healthcare Technology</h3>
+                    <p>AI in healthcare projected to exceed $500B by 2032. Digital health solutions are transforming patient care and operational efficiency.</p>
+                    <div class="market-value">$500B+ by 2032</div>
+                </div>
+                <div class="market-card fade-in">
+                    <div class="market-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Education Technology</h3>
+                    <p>Global EdTech market expected to reach $598.82B by 2032. AI-driven personalized learning platforms are revolutionizing education.</p>
+                    <div class="market-value">$598B by 2032</div>
+                </div>
+                <div class="market-card fade-in">
+                    <div class="market-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Fintech & Digital Finance</h3>
+                    <p>AI in Finance expected to hit ~$190B by 2030. Digital wallets and payment solutions revolutionizing financial services.</p>
+                    <div class="market-value">$190B by 2030</div>
+                </div>
+                <div class="market-card fade-in">
+                    <div class="market-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Climate/Eco Tech</h3>
+                    <p>Global climate tech market projected to exceed $600B by 2030. Sustainability solutions and carbon tracking systems are in high demand.</p>
+                    <div class="market-value">$600B by 2030</div>
+                </div>
+            </div>
+            
+            <!-- Market Charts - UPDATED -->
+            <div class="market-charts fade-in">
+                <h3 style="text-align: center; margin-bottom: 20px;">Market Opportunity Visualization</h3>
+                <div class="charts-container">
+                    <div class="chart">
+                        <div class="chart-title">Market Share by Sector</div>
+                        <div class="pie-chart"></div>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #0fa3b1;"></div>
+                                <span>Healthcare Tech</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #1a4b7c;"></div>
+                                <span>EdTech</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #6d46a9;"></div>
+                                <span>FinTech</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #2e7d32;"></div>
+                                <span>Climate/Eco Tech</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <div class="chart-title">Market Growth Projection</div>
+                        <div class="bar-chart">
+                            <div class="bar" style="height: 83%;">
+                                <div class="bar-value">$600B</div>
+                                <div class="bar-label">Climate/Eco</div>
+                            </div>
+                            <div class="bar" style="height: 80%;">
+                                <div class="bar-value">$500B</div>
+                                <div class="bar-label">Healthcare</div>
+                            </div>
+                            <div class="bar" style="height: 60%;">
+                                <div class="bar-value">$598B</div>
+                                <div class="bar-label">EdTech</div>
+                            </div>
+                            <div class="bar" style="height: 32%;">
+                                <div class="bar-value">$190B</div>
+                                <div class="bar-label">FinTech</div>
+                            </div>
+                        </div>
+                        <p>Projected market sizes by 2030-2032 across key sectors</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section - NEW -->
+    <section class="download-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Resources</h2>
+                <p>Download our detailed service catalogs and technical documentation</p>
+            </div>
+            <div style="text-align: center;">
+                <a href="https://drive.google.com/drive/folders/1DBW_UOe8aNlQpnxMUekv8GMDcmUe1OUS?usp=sharing" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> Download Service Catalog (Table 1)
+                </a>
+                <a href="https://docs.google.com/document/d/1AiW5JCpvXfELx6hgp0v3mT-GrLgxrvZs/edit?usp=sharing&ouid=111882525014647992170&rtpof=true&sd=true" class="download-btn" target="_blank">
+                    <i class="fas fa-download"></i> Download Technical Documentation (Table 2)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section - UPDATED -->
+    <section id="roadmap">
+        <div class="container">
+            <div class="section-title">
+                <h2>Strategic Roadmap</h2>
+                <p>Our 5-year vision for growth and innovation in the digital landscape</p>
+            </div>
+            <div class="roadmap-container">
+                <div class="roadmap-line"></div>
+                <div class="roadmap-items">
+                    <div class="roadmap-item fade-in">
+                        <div class="roadmap-content">
+                            <h3>Year 1: Foundation & MVPs</h3>
+                            <p>Build core team (expert devs, UI/UX designers, QA); develop MVPs in key verticals (AI-as-a-Service, climate tech platform). Establish Agile processes and refine tech stack. Acquire first marquee clients in health and climate tech.</p>
+                        </div>
+                        <div class="roadmap-marker"></div>
+                    </div>
+                    <div class="roadmap-item fade-in">
+                        <div class="roadmap-content">
+                            <h3>Year 2: Portfolio Expansion</h3>
+                            <p>Formalize productized services (AI-as-a-Service, Climate Tech package) and expand market presence. Target partnerships with industry leaders. Scale support (DevOps, customer success) for growing client base.</p>
+                        </div>
+                        <div class="roadmap-marker"></div>
+                    </div>
+                    <div class="roadmap-item fade-in">
+                        <div class="roadmap-content">
+                            <h3>Year 3: Scaling Tech & Team</h3>
+                            <p>Launch "GxDx Platform" - a modular service platform combining AI/analytics, blockchain, and climate tech tools. Increase R&D (sustainability analytics, advanced AI). Grow geographically and vertically.</p>
+                        </div>
+                        <div class="roadmap-marker"></div>
+                    </div>
+                    <div class="roadmap-item fade-in">
+                        <div class="roadmap-content">
+                            <h3>Year 4: Innovation & Ecosystem</h3>
+                            <p>Introduce proprietary offerings (carbon tracking platform, AI-powered sustainability suite). Secure strategic alliances. Pursue certifications (ISO 9001/27001) to enter highly regulated markets.</p>
+                        </div>
+                        <div class="roadmap-marker"></div>
+                    </div>
+                    <div class="roadmap-item fade-in">
+                        <div class="roadmap-content">
+                            <h3>Year 5: Market Leadership</h3>
+                            <p>Solidify GxDx as an established brand in multiple industries. Accelerate revenue growth through subscription services and platform fees. Prepare for major funding round or IPO.</p>
+                        </div>
+                        <div class="roadmap-marker"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Location</h2>
+                <p>Visit our headquarters in Dhaka, Bangladesh</p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.837240932882!2d90.40627731498236!3d23.790868784570392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c70c15ea1de1%3A0x97856381e9e13558!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sus!4v1647457633172!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Ready to partner on your next big innovation? Get in touch with our team.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Our Headquarters</h3>
+                            <p>Dhaka, Bangladesh</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+880 1XXX-XXXXXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@gxdx-dev.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>Business Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>
+                        <span class="logo-gx">Gx</span><span class="logo-slash">/</span><span class="logo-dx">Dx</span>
+                    </h3>
+                    <p>Your strategic ally for the digital age. We deliver omni-vertical software solutions with enterprise-grade quality.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-medium"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#solutions">Solutions</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Web & Mobile Development</a></li>
+                        <li><a href="#">AI/ML Solutions</a></li>
+                        <li><a href="#">AI-as-a-Service</a></li>
+                        <li><a href="#">Climate/Eco Tech</a></li>
+                        <li><a href="#">Enterprise Systems</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://drive.google.com/drive/folders/1DBW_UOe8aNlQpnxMUekv8GMDcmUe1OUS?usp=sharing" target="_blank">Service Catalog</a></li>
+                        <li><a href="https://docs.google.com/document/d/1AiW5JCpvXfELx6hgp0v3mT-GrLgxrvZs/edit?usp=sharing&ouid=111882525014647992170&rtpof=true&sd=true" target="_blank">Technical Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</li>
+                        <li><i class="fas fa-phone"></i> +880 1XXX-XXXXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@gxdx-dev.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 GxDx Solutions. All rights reserved. | Security-first design | ISO 27001 & GDPR Compliance</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Services Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+        });
+
+        // Scroll Animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        // Check on load and scroll
+        window.addEventListener('load', fadeInOnScroll);
+        window.addEventListener('scroll', fadeInOnScroll);
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Initialize animations on page load
+        fadeInOnScroll();
+    </script>
+</body>
+</html>
